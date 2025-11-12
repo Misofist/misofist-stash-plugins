@@ -1,0 +1,44 @@
+name: Update plugin source
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout main
+      uses: actions/checkout@v2
+      with:
+        path: main
+        ref: main
+        fetch-depth: '0'
+    - name: Group Management
+      run: |
+        cd main/plugins/groupManagement
+        yarn install --frozen-lockfile
+        yarn build
+    - name: Build
+      run: |
+        cd main
+        ./build_stash_source.sh
+    - uses: actions/upload-pages-artifact@v3
+    
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

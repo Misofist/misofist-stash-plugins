@@ -1,0 +1,16 @@
+.group-management-promote-info {
+    display: block;
+    position: absolute;
+    top: calc(100% - 5px);
+    right: 0;
+
+    background: black;
+
+    opacity: 0.4;
+
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}

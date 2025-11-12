@@ -1,0 +1,9 @@
+name: Group Management
+description: Utilities to make groups less painful to manage.
+version: 1.0
+url: https://github.com/Misofist/misofist-stash-plugins
+ui:
+  javascript:
+    - groupManagement.js
+  css:
+    - groupManagement.css
