@@ -1,0 +1,17 @@
+{
+  "name": "locate-changed-extensions",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Misofist",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "compile:ts": "yarn tsc",
+    "copy:yml": "cpx \"src/locateChangedExtensions.yml\" \"dist\"",
+    "compile": "yarn run compile:ts",
+    "build": "yarn run compile && yarn run copy:yml"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "typescript": "^5.2.2"
+  }
+}

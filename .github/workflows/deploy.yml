@@ -26,6 +26,11 @@ jobs:
         cd main/plugins/groupManagement
         yarn install --frozen-lockfile
         yarn build
+    - name: Locate Changed Extensions
+      run: |
+        cd main/plugins/locateChangedExtensions
+        yarn install --frozen-lockfile
+        yarn build
     - name: Build
       run: |
         cd main

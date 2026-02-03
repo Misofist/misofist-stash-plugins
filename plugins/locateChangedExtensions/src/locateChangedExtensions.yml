@@ -1,0 +1,12 @@
+name: Locate Changed Extensions
+description: Detects and fixes scenes where the video file has changed extension.
+version: 1.0
+url: https://github.com/Misofist/misofist-stash-plugins
+exec:
+  - locateChangedExtensions.js
+interface: js
+tasks:
+  - name: Fix scenes with changed extensions
+    description: Scans for duplicate scenes where the filenames are the same but with different extensions. Transfers metadata from any deleted file to the non-deleted one.
+    defaultArgs:
+      mode: fix
